@@ -22,9 +22,9 @@
 */
 
 //CODE HERE
+const greetUser = username => console.log(`Welcome back, ${username}`)
 
-
-
+greetUser("Andrew")
 
 
 //////////////////PROBLEM 2////////////////////
@@ -50,8 +50,15 @@
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-
-
+function canWeDeliver(zipCode) {
+    if (deliveryAreaZipCodes.includes(zipCode)) {
+        return console.log("You're in our delivery zone!")
+    }
+    else {
+        return console.log("Sorry, we can't deliver to that address")
+    }
+}
+canWeDeliverTwo(85213)
 
 /* 
     Problem 2 Continued
@@ -71,7 +78,15 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 */
 
 // CODE HERE
-
+function canWeDeliverTwo(zipCode) {
+    for (i = 0; i < deliveryAreaZipCodes.length; i++) {
+        if (zipCode === deliveryAreaZipCodes[i]) {
+            return console.log("You're in our delivery zone!")
+        }
+    }
+    return console.log("Sorry, we can't deliver to that address")
+}
+canWeDeliverTwo(85213)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -107,7 +122,8 @@ const deals = [
 */
 
 //CODE HERE
-
+const newDeal = deals[0].title.replace("15", "10")
+console.log(newDeal)
 
 
 /*
@@ -124,3 +140,10 @@ const deals = [
 */
 
 //CODE HERE
+
+// just checking how the original line displays
+console.log(deals[1].desc)
+
+// logged my code to ensure the correct changes were made
+const extDeal = deals[1].desc.trim().replace("March", "April")
+console.log(extDeal)
