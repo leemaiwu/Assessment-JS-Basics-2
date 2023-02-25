@@ -26,13 +26,18 @@
     the popularity is an overall ranking, the
     rating is an average of all customer ratings, and
     for the tags, think of things that a
-    user might filter by, like 'gluten-free' or
-    'kids'
+    user might filter by, like 'gluten-free' or 'kids'
 */
 
 //CODE HERE
-
-
+const pizza = {
+    name: "cheese",
+    price: 10,
+    category: "entree",
+    popularity: 8,
+    rating: 5,
+    tags: ["gluten-free", "kids"]
+}
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -43,7 +48,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +58,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -63,7 +68,8 @@
 */
 
 //CODE HERE
-
+const {price: cost} = pizza
+console.log(cost)
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +79,8 @@
 */
 
 //CODE HERE
-
+const {category: value} = pizza
+console.log(value)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -88,8 +95,48 @@
 */
 
 //CODE HERE
-
-
+const foodArr = [
+    {
+        name: "burger",
+        price: 15,
+        category: "entree",
+        popularity: 6,
+        rating: 4,
+        tags: ["vegan", "kids"]
+    },
+    {
+        name: "salad",
+        price: 8,
+        category: "appetizer",
+        popularity: 7,
+        rating: 3,
+        tags: ["gluten-free", "adults"]
+    },
+    {
+        name: "sandwich",
+        price: 10,
+        category: "entree",
+        popularity: 8,
+        rating: 4,
+        tags: ["gluten-free", "kids"]
+    },
+    {
+        name: "taco",
+        price: 8,
+        category: "appetizer",
+        popularity: 10,
+        rating: 5,
+        tags: ["spicy", "adults"]
+    },
+    {
+        name: "burrito",
+        price: 12,
+        category: "entree",
+        popularity: 8,
+        rating: 3,
+        tags: ["spicy", "adults"]
+    }
+]
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -104,10 +151,10 @@
 */
 
 //CODE HERE
+const filteredFood = foodArr.filter(item => item.tags.includes("spicy"))
+console.log(filteredFood)
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
-
+console.log("--------------------")
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -149,7 +196,24 @@
 */
 
 //CODE HERE
-
+function filterByProperty(property, number, type) {
+    let filteredArr = foodArr.filter((name) => {
+    if (property === "rating" && type === "above") {
+        return name.rating >  number
+    } else if (property === "rating" && type === "below") {
+        return name.rating < number
+    } else if (property === "popularity" && type === "above") {
+        return name.popularity > number
+    } else if (property === "popularity" && type === "below") {
+        return name.popularity < number
+    } else if (property === "price" && type === "above") {
+        return name.price > number
+    } else if (property === "price" && type === "below") {
+        return name.price < number
+    }
+})
+    return filteredArr
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -159,3 +223,4 @@
 */
 
 //CODE HERE
+console.log(filterByProperty("price", 10, "below"))
