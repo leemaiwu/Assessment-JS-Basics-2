@@ -34,9 +34,8 @@ const cart = [
 ]
 
 //CODE HERE
-
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+const summedPrice = cart.reduce((acc, currV) => acc + currV.price, 0)
+console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,8 +53,13 @@ const cart = [
 */
 
 //CODE HERE
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    let taxAmount = cartTotal * tax
+    let newTotal = (taxAmount + cartTotal) - couponValue
+    return newTotal
+}
 
-
+console.log(calcFinalPrice(100, 20, .06))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -79,7 +83,11 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
-
+    customer name - Any resturant usually asks for the customer's name in order to best serve them.
+    party size - Necessary to seat and optimize restaurant capacity.
+    drink order & cost - Restaurants provide drinks. The cost is required for the bill
+    food order & cost - The customers came for the food. The cost is required for the bill
+    tax - tax is always calculated
 */
 
 /*
@@ -88,3 +96,12 @@ const cart = [
 */
 
 //CODE HERE
+
+const customer =
+    {
+        name: "Jack",
+        partySize: 2,
+        drinkAndCost: {water: 0, soda: 3},
+        foodAndCost: {sushi: 20, ramen: 15},
+        tax: 0.8
+    }
